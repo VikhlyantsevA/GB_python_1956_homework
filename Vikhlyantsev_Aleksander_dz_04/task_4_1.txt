@@ -1,0 +1,96 @@
+# Задание 1
+
+# Результат выполнения задания должен быть файл `task_4_1.txt` добавленный в репозиторий, в котором будут введенные Вами
+# команды и их результат
+#   * Проверить, установлен ли пакет `pillow` в глобальном окружении. Если да — зафиксировать версию.
+#   * Установить самую свежую версию `pillow`, если ранее она не была установлена.
+#   * Создать и активировать виртуальное окружение. Убедиться, что в нем нет пакета `pillow`.
+#   * Установить в виртуальное окружение `pillow` версии `7.1.1` (или другой, отличной от самой свежей).
+#   * Деактивировать виртуальное окружение.
+#   * Если будут проблемы с `pillow` - можно поработать с другим пакетом: например, `requests`.
+
+vihlyancevaa@study:~$ cd test/
+
+vihlyancevaa@study:~/test$ pip3 freeze | grep requests
+requests==2.18.4
+requests-unixsocket==0.1.5
+
+vihlyancevaa@study:~/test$ pip3 install -U requests
+Collecting requests
+  Downloading https://files.pythonhosted.org/packages/2d/61/08076519c80041bc0ffa1a8af0cbd3bf3e2b62af10435d269a9d0f40564d/requests-2.27.1-py2.py3-none-any.whl (63kB)
+    100% |████████████████████████████████| 71kB 1.6MB/s
+Collecting idna<4,>=2.5; python_version >= "3" (from requests)
+  Downloading https://files.pythonhosted.org/packages/04/a2/d918dcd22354d8958fe113e1a3630137e0fc8b44859ade3063982eacd2a4/idna-3.3-py3-none-any.whl (61kB)
+    100% |████████████████████████████████| 61kB 3.6MB/s
+Collecting certifi>=2017.4.17 (from requests)
+  Downloading https://files.pythonhosted.org/packages/37/45/946c02767aabb873146011e665728b680884cd8fe70dde973c640e45b775/certifi-2021.10.8-py2.py3-none-any.whl (149kB)
+    100% |████████████████████████████████| 153kB 2.5MB/s
+Collecting charset-normalizer~=2.0.0; python_version >= "3" (from requests)
+  Downloading https://files.pythonhosted.org/packages/0c/8e/73ef5366e5c04c2410dab1c74493ca9617a56a27a50f11e01aa4fac2a16c/charset_normalizer-2.0.11-py3-none-any.whl
+Collecting urllib3<1.27,>=1.21.1 (from requests)
+  Downloading https://files.pythonhosted.org/packages/4e/b8/f5a25b22e803f0578e668daa33ba3701bb37858ec80e08a150bd7d2cf1b1/urllib3-1.26.8-py2.py3-none-any.whl (138kB)
+    100% |████████████████████████████████| 143kB 7.1MB/s
+Installing collected packages: idna, certifi, charset-normalizer, urllib3, requests
+Successfully installed certifi-2021.10.8 charset-normalizer-2.0.11 idna-3.3 requests-2.27.1 urllib3-1.26.8
+
+vihlyancevaa@study:~/test$ sudo apt install python3-venv
+[sudo] password for vihlyancevaa:
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libevent-core-2.1-6 linux-hwe-5.4-headers-5.4.0-91 linux-hwe-5.4-headers-5.4.0-92
+  linux-hwe-5.4-headers-5.4.0-94
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  python3.6-venv
+The following NEW packages will be installed:
+  python3-venv python3.6-venv
+0 upgraded, 2 newly installed, 0 to remove and 13 not upgraded.
+Need to get 7 392 B of archives.
+After this operation, 44,0 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ru.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 python3.6-venv amd64 3.6.9-1~18.04ubuntu1.6 [6 184 B]
+Get:2 http://ru.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 python3-venv amd64 3.6.7-1~18.04 [1 208 B]
+Fetched 7 392 B in 0s (55,6 kB/s)
+Selecting previously unselected package python3.6-venv.
+(Reading database ... 229852 files and directories currently installed.)
+Preparing to unpack .../python3.6-venv_3.6.9-1~18.04ubuntu1.6_amd64.deb ...
+Unpacking python3.6-venv (3.6.9-1~18.04ubuntu1.6) ...
+Selecting previously unselected package python3-venv.
+Preparing to unpack .../python3-venv_3.6.7-1~18.04_amd64.deb ...
+Unpacking python3-venv (3.6.7-1~18.04) ...
+Setting up python3.6-venv (3.6.9-1~18.04ubuntu1.6) ...
+Setting up python3-venv (3.6.7-1~18.04) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+
+vihlyancevaa@study:~/test$ python3 -m venv my_virt
+
+vihlyancevaa@study:~/test$ source my_virt/bin/activate
+
+(my_virt) vihlyancevaa@study:~/test$ pip freeze | grep requests
+
+(my_virt) vihlyancevaa@study:~/test$ pip install requests==2.20.1
+Collecting requests==2.20.1
+  Downloading https://files.pythonhosted.org/packages/ff/17/5cbb026005115301a8fb2f9b0e3e8d32313142fe8b617070e7baad20554f/requests-2.20.1-py2.py3-none-any.whl (57kB)
+    100% |████████████████████████████████| 61kB 1.4MB/s
+Collecting urllib3<1.25,>=1.21.1 (from requests==2.20.1)
+  Downloading https://files.pythonhosted.org/packages/01/11/525b02e4acc0c747de8b6ccdab376331597c569c42ea66ab0a1dbd36eca2/urllib3-1.24.3-py2.py3-none-any.whl (118kB)
+    100% |████████████████████████████████| 122kB 2.2MB/s
+Collecting certifi>=2017.4.17 (from requests==2.20.1)
+  Using cached https://files.pythonhosted.org/packages/37/45/946c02767aabb873146011e665728b680884cd8fe70dde973c640e45b775/certifi-2021.10.8-py2.py3-none-any.whl
+Collecting idna<2.8,>=2.5 (from requests==2.20.1)
+  Downloading https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl (58kB)
+    100% |████████████████████████████████| 61kB 8.5MB/s
+Collecting chardet<3.1.0,>=3.0.2 (from requests==2.20.1)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+    100% |████████████████████████████████| 143kB 3.9MB/s
+Installing collected packages: urllib3, certifi, idna, chardet, requests
+Successfully installed certifi-2021.10.8 chardet-3.0.4 idna-2.7 requests-2.20.1 urllib3-1.24.3
+
+(my_virt) vihlyancevaa@study:~/test$ pip freeze | grep requests
+requests==2.20.1
+
+(my_virt) vihlyancevaa@study:~/test$ deactivate
+
+vihlyancevaa@study:~/test$
