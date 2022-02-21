@@ -1,1 +1,0 @@
-# GB_python_1956_homework
