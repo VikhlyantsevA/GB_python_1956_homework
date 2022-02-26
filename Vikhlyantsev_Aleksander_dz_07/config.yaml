@@ -1,0 +1,98 @@
+##Вариант 1
+
+- directory: my_project
+  folders: [settings, mainapp, authapp]
+
+- directory: my_project/settings
+  files: [__init__.py, dev.py, prod.py]
+
+- directory: my_project/mainapp
+  folders: [templates]
+  files: [__init__.py, models.py, views.py]
+
+- directory: my_project/mainapp/templates
+  folders: [mainapp]
+
+- directory: my_project/mainapp/templates/mainapp
+  files: [base.html, index.html]
+
+- directory: my_project/authapp
+  folders: [templates]
+  files: [__init__.py, models.py, views.py]
+
+- directory: my_project/authapp/templates
+  folders: [mainapp]
+
+- directory: my_project/authapp/templates/authapp
+  files: [base.html, index.html]
+
+
+##Вариант 2
+
+my_project:
+  files: []
+  folders:
+    settings:
+      files: [__init__.py, dev.py, prod.py]
+      folders: []
+    mainapp:
+      files: [__init__.py, models.py, views.py]
+      folders:
+        templates:
+          files: []
+          folders:
+            mainapp:
+              files: [base.html, index.html]
+              folders: []
+    authapp:
+      files: [__init__.py, models.py, views.py]
+      folders:
+        templates:
+          files: []
+          folders:
+            authapp:
+              files: [base.html, index.html]
+
+
+##Вариант 3
+
+- folder_id: 1
+  folder_name: my_project
+  folders: [settings, mainapp, authapp]
+
+- folder_id: 2
+  folder_name: settings
+  parent_id: 1
+  files: [__init__.py, dev.py, prod.py]
+
+- folder_id: 3
+  folder_name: mainapp
+  parent_id: 1
+  folders: [templates]
+  files: [__init__.py, models.py, views.py]
+
+- folder_id: 4
+  folder_name: templates
+  parent_id: 3
+  folders: [mainapp]
+
+- folder_id: 5
+  folder_name: mainapp
+  parent_id: 4
+  files: [base.html, index.html]
+
+- folder_id: 6
+  folder_name: authapp
+  parent_id: 1
+  folders: [templates]
+  files: [__init__.py, models.py, views.py]
+
+- folder_id: 7
+  folder_name: templates
+  parent_id: 6
+  folders: [authapp]
+
+- folder_id: 8
+  folder_name: authapp
+  parent_id: 7
+  files: [base.html, index.html]

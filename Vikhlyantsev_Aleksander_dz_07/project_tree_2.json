@@ -1,0 +1,33 @@
+[
+  "my_project",
+  [
+    ["settings", [], ["__init__.py", "dev.py", "prod.py"]],
+    [
+      "mainapp",
+      [
+        [
+          "templates",
+          [
+            ["mainapp", [], ["base.html", "index.html"]]
+          ],
+          []
+        ]
+      ],
+      ["__init__.py", "models.py", "views.py"]
+    ],
+    [
+      "authapp",
+      [
+        [
+          "templates",
+          [
+            ["authapp", [], ["base.html", "index.html"]]
+          ],
+          []
+        ]
+      ],
+      ["__init__.py", "models.py", "views.py"]
+    ]
+  ],
+  []
+]
